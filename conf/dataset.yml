@@ -1,0 +1,72 @@
+# Data
+batch_size: 72
+train/AudioDataset.duration: 0.38
+train/AudioDataset.n_examples: 10000000
+
+val/AudioDataset.duration: 5.0
+val/build_transform.augment_prob: 1.0
+val/AudioDataset.n_examples: 64
+
+
+batch_size_test: 1
+test/AudioDataset.duration: 10.0
+test/build_transform.augment_prob: 1.0
+test/AudioDataset.n_examples: 100  ## this setting
+# test/AudioDataset.n_examples: 40  ## just for temp
+
+AudioLoader.shuffle: true
+AudioDataset.without_replacement: true
+
+train/build_dataset.folders:
+        speech_hq:
+                - /data2/yoongi/dataset/VCTK-Corpus/VCTK-Corpus/wav48
+
+val/build_dataset.folders:
+        speech_hq:
+                - /data2/yoongi/dataset/VCTK-Corpus/VCTK-Corpus/wav48
+
+test/build_dataset.folders:
+        speech_hq:
+                - /data2/yoongi/dataset/VCTK-Corpus/VCTK-Corpus/wav48
+
+## /data_s = /scratch/acg17028ub
+
+# train/build_dataset.folders:
+#         speech_fb:
+#                 - /scratch/acg17028ub/data/DAPS/Sampled/train/
+#         speech_hq:
+#                 - /scratch/acg17028ub/data/VCTK/Sampled/VCTK-Corpus/wav48/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/vctk_wav48_silence_trimmed/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/read_speech/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/french_speech/
+#         speech_uq:
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/emotional_speech/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/german_speech/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/russian_speech/
+#                 - /scratch/acg17028ub/data/DNS_Challenge/Sampled/spanish_speech/
+#                 - /scratch/acg17028ub/data/Common_Voice/Sampled/cv-corpus-17.0-2024-03-15/en/clips/
+#         music_hq:
+#                 - /scratch/acg17028ub/data/MUSDB/Sampled/train/
+#         music_uq:
+#                 - /scratch/acg17028ub/data/JAMENDO/Sampled/
+#         general:
+#                 # - /scratch/acg17028ub/user/koichi/backups/share/dataset/audio/audioset/audioset_tagging_cnn/audios/audioset/train/wav_44k/
+#                 - /groups/gce50978/user/koichi/backups/share/dataset/audio/audioset/audioset_tagging_cnn/audios/audioset/train/wav_44k/
+#                 - /scratch/acg17028ub/data/AudioSet/Sampled/Balanced_Train/
+
+# val/build_dataset.folders:
+#         speech_hq:
+#                 - /scratch/acg17028ub/data/DAPS/Sampled/val/
+#         music_hq:
+#                 - /scratch/acg17028ub/data/MUSDB/Sampled/test/
+#         general:
+#                 - /scratch/acg17028ub/data/AudioSet/Sampled/eval/
+
+# test/build_dataset.folders:
+#         speech_hq:
+#                 - /scratch/acg17028ub/data/DAPS/Sampled/test/
+#         music_hq:
+#                 - /scratch/acg17028ub/data/MUSDB/Sampled/test/
+#         general:
+#                 - /scratch/acg17028ub/data/AudioSet/Sampled/eval/
+

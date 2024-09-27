@@ -1,0 +1,39 @@
+$include:
+  - conf/base.yml
+  - conf/dataset.yml
+  # - conf/abci/dataset_g.yml
+  # - conf/abci/1gpu_abci.yml
+
+## 원래 논문:
+## ablation: bs 12, 250k iter
+## final model: bs 72, 400k iter
+
+num_iters: 300000  
+save_iters: []
+
+batch_size: 4
+val_batch_size: 4
+
+DAC_VRVQ.quantizer_dropout: 0.0  
+DAC_VRVQ.full_codebook_rate: 0.0 
+DAC_VRVQ.use_framewise_masking: false
+
+DAC_VRVQ.n_codebooks: 8
+
+DAC_VRVQ.level_min: 1
+DAC_VRVQ.level_max: 48
+DAC_VRVQ.imp2mask_alpha: 1  
+DAC_VRVQ.imp2mask_func: "logcosh"
+
+lambdas: ## For generator. 
+  mel/loss: 15.0
+  adv/feat_loss: 2.0
+  adv/gen_loss: 1.0
+  vq/commitment_loss: 0.25
+  vq/codebook_loss: 1.0
+  vq/rate_loss: 2  
+
+
+# resume: true
+# load_weights: true
+# # tag: 'best'

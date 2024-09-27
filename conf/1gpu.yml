@@ -1,0 +1,6 @@
+$include:
+  - conf/abci/base_abci.yml
+
+batch_size: 8
+val_batch_size: 8
+num_workers: 8
